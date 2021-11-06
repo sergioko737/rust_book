@@ -21,6 +21,11 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
+          echo "Git log"
           git log --oneline
+          echo "Git branch"
+          git branch
+          echo "git diff --name-only main..."
+          git diff --name-only main...
           echo "FINISH"
           #exit 1
