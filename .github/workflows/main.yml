@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+        #with:
+        #  fetch-depth: 0
+        #  ref: ${{ github.event.pull_request.head.ref }}
+        #  repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Print a greeting
         env:
           MY_VAR: Hi there! My name is
