@@ -17,4 +17,5 @@ jobs:
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
           git log --oneline
+          echo "FINISH"
           #exit 1
