@@ -26,6 +26,6 @@ jobs:
           echo "Git branch"
           git branch
           echo "git diff --name-only main..."
-          git diff --name-only main...
+          git diff --name-only ..main
           echo "FINISH"
           #exit 1
