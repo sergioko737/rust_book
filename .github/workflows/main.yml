@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+        #  repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Print a greeting
         env:
           MY_VAR: Hi there! My name is
@@ -21,6 +21,11 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
+          echo "Git log"
           git log --oneline
+          echo "Git branch"
+          git branch
+          echo "git diff --name-only main..."
+          git diff --name-only main..test
           echo "FINISH"
           #exit 1
