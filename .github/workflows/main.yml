@@ -28,7 +28,8 @@ jobs:
           git branch -a
           #git log --oneline
           echo ${{ github.event.pull_request.head.ref }}
-          git --no-pager diff remotes/origin/main..${{ github.event.pull_request.head.ref }}
+          echo $GITHUB_REF
+          git --no-pager diff $GITHUB_BASE_REF..$GITHUB_REF
 
           echo "FINISH"
           echo "###### PRINTENV ############"
