@@ -31,16 +31,12 @@ jobs:
           echo $GITHUB_REF
           git fetch origin $GITHUB_BASE_REF
           git --no-pager diff origin/$GITHUB_BASE_REF..$GITHUB_HEAD_REF
-          
 
           echo "FINISH"
           echo "###### PRINTENV ############"
           printenv          
-   
-   file_changes:
-     name: file changes
-     runs-on: ubuntu-latest
-     steps:
-       - id: file-changes
-         uses: trilom/file-changes-action@v1.2.3
+
+      - id: file_changes
+        name: file changes
+        uses: trilom/file-changes-action@v1.2.3
 
