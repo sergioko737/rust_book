@@ -25,10 +25,13 @@ jobs:
           git status
           git branch -a
           #git log --oneline
+          echo "github.event.pull_request.head.ref"
           echo ${{ github.event.pull_request.head.ref }}
+          echo "github.event.pull_request"
+          echo ${{ github.event.pull_request }}
           echo $GITHUB_REF
           git fetch origin $GITHUB_BASE_REF
-          git --no-pager diff origin/$GITHUB_BASE_REF..$GITHUB_HEAD_REF
+          git --no-pager diff origin/$GITHUB_BASE_REF..${{ github.event.pull_request.head.ref }}
 
           echo "FINISH"
 
