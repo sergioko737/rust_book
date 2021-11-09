@@ -1,0 +1,12 @@
+name: Github script
+on:
+  pull_request:
+  pull_request_review:
+jobs:
+  github_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: View context attributes
+        uses: actions/github-script@v5
+        with:
+          script: console.log(context)
