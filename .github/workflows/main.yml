@@ -21,6 +21,9 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
-          git log --oneline
+
+          python3 --version
+          #git log --oneline
+          git --no-pager diff master..$(${{ github.event.pull_request.head.ref }})
           echo "FINISH"
           #exit 1
