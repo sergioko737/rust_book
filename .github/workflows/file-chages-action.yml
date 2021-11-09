@@ -9,4 +9,8 @@ jobs:
         uses: trilom/file-changes-action@v1.2.3
       - name: Printenv
         run: |
-          printenv
+          echo ${{ steps.file_changes_outputs_files }}
+          echo ${{ steps.file_changes.outputs.files_modified }}
+          echo ${{ steps.file_changes.outputs.files_added }}
+          echo ${{ steps.file_changes.outputs.files_removed }}
+          # printenv
