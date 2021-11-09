@@ -31,5 +31,6 @@ jobs:
           git --no-pager diff remotes/origin/main..${{ github.event.pull_request.head.ref }}
 
           echo "FINISH"
-          
+          echo "###### PRINTENV ############"
+          printenv          
           #exit 1
