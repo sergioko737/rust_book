@@ -20,11 +20,9 @@ jobs:
           MIDDLE_NAME: The
           LAST_NAME: Octocat
         run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
-
-          python3 --version
-
+          echo "###### PRINTENV ############"
+          printenv          
           git status
           git branch -a
           #git log --oneline
@@ -34,10 +32,4 @@ jobs:
           git --no-pager diff origin/$GITHUB_BASE_REF..$GITHUB_HEAD_REF
 
           echo "FINISH"
-          echo "###### PRINTENV ############"
-          printenv          
-
-      - id: file_changes
-        name: file changes
-        uses: trilom/file-changes-action@v1.2.3
 
