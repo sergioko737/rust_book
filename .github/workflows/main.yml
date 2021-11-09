@@ -36,7 +36,6 @@ jobs:
           echo "FINISH"
           echo "###### PRINTENV ############"
           printenv          
-          #exit 1
    file_changes:
      runs-on: ubuntu-latest
      steps:
