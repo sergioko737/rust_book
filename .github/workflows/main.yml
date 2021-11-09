@@ -37,3 +37,9 @@ jobs:
           echo "###### PRINTENV ############"
           printenv          
           #exit 1
+   file_changes:
+     runs-on: ubuntu-latest
+     steps:
+       - id: file-changes
+         uses: trilom/file-changes-action@v1.2.3
+
