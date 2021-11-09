@@ -23,9 +23,12 @@ jobs:
           ls
 
           python3 --version
+
+          git status
+          git branch -a
           #git log --oneline
           echo ${{ github.event.pull_request.head.ref }}
-          git --no-pager diff master..${{ github.event.pull_request.head.ref }}
+          git --no-pager diff main..${{ github.event.pull_request.head.ref }}
 
           echo "FINISH"
           
