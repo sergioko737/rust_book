@@ -36,7 +36,9 @@ jobs:
           echo "FINISH"
           echo "###### PRINTENV ############"
           printenv          
+   
    file_changes:
+     name: file changes
      runs-on: ubuntu-latest
      steps:
        - id: file-changes
