@@ -7,3 +7,5 @@ jobs:
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
 
+        run: |
+          printenv
