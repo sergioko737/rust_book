@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: file_changes
+        name: File changes
         uses: trilom/file-changes-action@v1.2.3
-
+      - name: Printenv
         run: |
           printenv
