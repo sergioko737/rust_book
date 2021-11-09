@@ -24,7 +24,8 @@ jobs:
 
           python3 --version
           #git log --oneline
-          git --no-pager diff master..$(${{ github.event.pull_request.head.ref }})
+          echo ${{ github.event.pull_request.head.ref }}
+          git --no-pager diff master..${{ github.event.pull_request.head.ref }}
 
           echo "FINISH"
           
