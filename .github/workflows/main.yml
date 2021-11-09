@@ -1,5 +1,6 @@
 name: Test action
 on:
+  push:
   pull_request:
   pull_request_review:
 jobs:
@@ -19,11 +20,16 @@ jobs:
           MIDDLE_NAME: The
           LAST_NAME: Octocat
         run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
+          echo "###### PRINTENV ############"
+          printenv          
+          git status
+          git branch -a
           #git log --oneline
-          gh --version
-          gh pr list
+          echo ${{ github.event.pull_request.head.ref }}
+          echo $GITHUB_REF
+          git fetch origin $GITHUB_BASE_REF
+          git --no-pager diff origin/$GITHUB_BASE_REF..$GITHUB_HEAD_REF
+
           echo "FINISH"
-          
-          #exit 1
+
