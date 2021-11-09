@@ -21,8 +21,9 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
           ls
-          git log --oneline
+          #git log --oneline
           gh --version
+          gh pr list
           echo "FINISH"
           
           #exit 1
