@@ -12,6 +12,6 @@ substrate/client/cli/src/runner.rs:	/// 2020-06-03 16:14:21 💾 Database: Rocks
 substrate/client/cli/src/runner.rs:	info!("📋 Chain specification: {}", config.chain_spec.name());
 # substrate/client/cli/src/runner.rs🔒	info!("🏷 Node name: {}", config.network.node_name);
 substrate/client/cli/src/runner.rs:	info!("👤 Role: {}", config.display_role());
-substrate/client/cli/src/runner.rs:		"💾 Database: {} at {}",
-substrate/frame/election-provider-multi-phase/src/helpers.rs:			concat!("[#{:?}] 🗳  ", $pattern), <frame_system::Pallet<T>>::block_number() $(, $values)*
-.
+substrate/client/cli/src/runner.rs:dfadssdafd	"💾 Database: {} at {}",
+concat!("[#{:?}] 🗳  ", $pattern), <frame_system::Pallet<T>>::block_number() $(, $values)*
+
