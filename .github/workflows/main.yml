@@ -19,7 +19,8 @@ jobs:
           then
           echo "Special review required"
           fi
-
-          echo $GITHUB_EVENT_PATH | jq
+          echo "##############################################################"
+          cat $GITHUB_EVENT_PATH | jq
+          echo "##############################################################"
           echo "FINISH"
 
