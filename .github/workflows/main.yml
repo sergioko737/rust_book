@@ -13,11 +13,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Print a greeting
-        env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat
         run: |
           # ls
           # echo "###### PRINTENV ############"
@@ -33,7 +28,7 @@ jobs:
           echo "SHOW ACTUAL DIFF"
           git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1
           echo "SHOW FILTERED DIFF"
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P GRANDPAz
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P '[\x{1F512}]'
           echo "Check whether diff contain locks"
           DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1)
           if [ "$DIFF" != "" ]
