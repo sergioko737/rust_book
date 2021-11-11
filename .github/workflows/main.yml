@@ -32,7 +32,7 @@ jobs:
           echo ${{ github.event.pull_request.requested_reviewers }}
           echo $GITHUB_REF
           git fetch origin $GITHUB_BASE_REF
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }}
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -RPlI "[\x{1F512}]"
 
           echo "FINISH"
 
