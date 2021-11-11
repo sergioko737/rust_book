@@ -29,13 +29,16 @@ jobs:
           echo ${{ github.event.pull_request.head.ref }}
           echo "github.event.pull_request.base.ref"
           echo ${{ github.event.pull_request.base.ref }}
-          echo ${{ github.event.pull_request.requested_reviewers }}
-
+          # echo ${{ github.event.pull_request.requested_reviewers }}
+          echo "SHOW ACTUAL DIFF"
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1"
+          echo "SHOW FILTERED DIFF"
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P "[\x{1F512}]"
+          echo "Check whether diff contain locks"
           DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P "[\x{1F512}]")
           if [ "$DIFF" != "" ]
           then
-              echo "Special review required"
+          echo "Special review required"
           fi
-
           echo "FINISH"
 
