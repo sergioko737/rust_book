@@ -33,7 +33,7 @@ jobs:
           echo "SHOW ACTUAL DIFF"
           git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1
           echo "SHOW FILTERED DIFF"
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep GRANDPA
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P GRANDPA
           echo "Check whether diff contain locks"
           DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1)
           if [ "$DIFF" != "" ]
