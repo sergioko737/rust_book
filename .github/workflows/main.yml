@@ -19,20 +19,23 @@ jobs:
           MIDDLE_NAME: The
           LAST_NAME: Octocat
         run: |
-          ls
-          echo "###### PRINTENV ############"
-          printenv
-          git status
-          git branch -a
+          # ls
+          # echo "###### PRINTENV ############"
+          # printenv
+          # git status
+          # git branch -a
           #git log --oneline
           echo "github.event.pull_request.head.ref"
           echo ${{ github.event.pull_request.head.ref }}
           echo "github.event.pull_request.base.ref"
           echo ${{ github.event.pull_request.base.ref }}
           echo ${{ github.event.pull_request.requested_reviewers }}
-          echo $GITHUB_REF
-          git fetch origin $GITHUB_BASE_REF
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -RPlI "[\x{1F512}]"
+
+          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep -P "[\x{1F512}]")
+          if [ "$DIFF" != "" ]
+          then
+              echo "Special review required"
+          fi
 
           echo "FINISH"
 
