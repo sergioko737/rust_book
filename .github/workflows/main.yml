@@ -28,9 +28,9 @@ jobs:
           echo "SHOW ACTUAL DIFF"
           git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1
           echo "SHOW FILTERED DIFF"
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 -G 🔒
+          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒
           echo "Check whether diff contain locks"
-          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 -G 🔒)
+          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
           if [ "$DIFF" != "" ]
           then
           echo "Special review required"
