@@ -32,6 +32,7 @@ jobs:
         with:
           #github access token.
           token: ${{ secrets.GITHUB_TOKEN }}
+          script: bash
           reviewers: '["sergioko747", "sergioko757"]'
           result: LOCKED_LINES_PRESENT
           run: |
