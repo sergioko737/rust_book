@@ -26,5 +26,5 @@ jobs:
           echo "FINISH"
           cat $GITHUB_EVENT_PATH | jq
           echo "##############################################################"
-          echo ${{ github.event.review.user }}
+          echo ${{ github.event.review.user.login }}
 
