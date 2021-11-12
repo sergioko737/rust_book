@@ -26,5 +26,5 @@ jobs:
           echo "FINISH"
           cat $GITHUB_EVENT_PATH | jq
           echo "##############################################################"
-          echo ${{ github.event.pull_request }}
+          echo ${{ github.event.review }}
 
