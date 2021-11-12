@@ -24,4 +24,5 @@ jobs:
           echo "Reviewers: $USERS_REVIEW_REQUESTED_FROM"
           echo "##############################################################"
           echo "FINISH"
+          cat $GITHUB_EVENT_PATH | jq
 
