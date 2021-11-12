@@ -28,7 +28,7 @@ jobs:
           # echo "##############################################################"
           # echo ${{ github.event.review.user.login }}
       - name: assign reviewer
-        uses: LongOddCode/assign-reviewer
+        uses: LongOddCode/assign-reviewer@0.2.2
         with:
           #github access token.
           token: ${{ secrets.GITHUB_TOKEN }}
