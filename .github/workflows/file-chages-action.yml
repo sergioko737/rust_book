@@ -14,3 +14,4 @@ jobs:
           echo ${{ steps.file_changes.outputs.files_added }}
           echo ${{ steps.file_changes.outputs.files_removed }}
           # printenv
+          cat $GITHUB_EVENT_PATH | jq
