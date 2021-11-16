@@ -25,6 +25,7 @@ jobs:
         run: |
           ls -R
       - name: pr-gatekeeper
-        uses: ./.github/actions/pr-gatekeeper
+        # uses: ./.github/actions/pr-gatekeeper
+        uses: /home/runner/work/rust_book/.github/actions/pr-gatekeeper
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
