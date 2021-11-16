@@ -19,7 +19,9 @@ jobs:
     name: PR Gatekeeper
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/pr-gatekeeper@main
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: pr-gatekeeper
+        uses: ./.github/actions/pr-gatekeeper@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
