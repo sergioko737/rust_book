@@ -1,0 +1,9 @@
+approvals:
+  # check will fail if there is no approval
+  minimum: 1     # optional
+  groups:        # optional
+    - name: main
+      minimum: 1 # optional
+      from:
+        - sergioko747
+        - sergioko757

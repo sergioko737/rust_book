@@ -9,4 +9,5 @@ jobs:
       - name: View context attributes
         uses: actions/github-script@v5
         with:
-          script: console.log(context.payload.pull_request)
+          script: |
+            console.log(context.payload.pull_request)
