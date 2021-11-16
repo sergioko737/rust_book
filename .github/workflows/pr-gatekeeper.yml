@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
       - name: show dir
         run: |
-          ls -R
+          ls -aR
       - name: pr-gatekeeper
         uses: ./../.github/actions/pr-gatekeeper
         # uses: sergioko737/rust_book/.github/actions/pr-gatekeeper@main
