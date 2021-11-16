@@ -21,8 +21,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - name: show dir
         run: |
-          ls
+          ls -R
       - name: pr-gatekeeper
         uses: ./.github/actions/pr-gatekeeper
         with:
