@@ -33,7 +33,7 @@ jobs:
           # echo "##############################################################"
           # echo ${{ github.event.review.user.login }}
       - name: assign reviewer
-        if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == true
+        # if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == true
         uses: LongOddCode/assign-reviewer@0.2.2
         with:
           #github access token.
@@ -42,6 +42,12 @@ jobs:
           reviewers: '["sergioko747", "sergioko757"]'
           result: LOCKED_LINES_PRESENT
           run: |
+            echo "1"
+            echo ${{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
+            echo "2"
+            echo steps.diff_check.outputs.LOCKED_LINES_PRESENT
+            echo "3"
+            echo {{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
             echo $(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
             DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
             if [ "$DIFF" != "" ]
