@@ -21,7 +21,7 @@ jobs:
           if [ "$DIFF" != "" ]
           then
           echo "Special review required"
-          echo '::set-output name=LOCKED_LINES_PRESENT::true'
+          echo '::set-output name=LOCKED_LINES_PRESENT::0'
           echo ${{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
           fi
           # echo "####################### GET LIST OF REVIEWERS #######################################"
@@ -33,7 +33,7 @@ jobs:
           # echo "##############################################################"
           # echo ${{ github.event.review.user.login }}
       - name: assign reviewer
-        # if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == true
+        if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == 0
         uses: LongOddCode/assign-reviewer@0.2.2
         with:
           #github access token.
