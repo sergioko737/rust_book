@@ -15,10 +15,9 @@ jobs:
       - name: CHECK PR FOR LOCKS
         run: |
           echo '::echo::on'
-          DIFF=false
-          git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒
-          # DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
-          if [ "$DIFF" != "false" ]
+          # DIFF=false
+          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | { grep 🔒 || true; })
+          if [ "$DIFF" != "" ]
           then
           echo "Special review required"
           fi
