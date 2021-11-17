@@ -1,7 +1,6 @@
 name: Assign reviewer
 on:
   pull_request:
-  pull_request_review:
 jobs:
   test_job:
     name: Test Job
