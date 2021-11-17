@@ -15,6 +15,7 @@ jobs:
       - name: CHECK PR FOR LOCKS
         id: diff_check
         run: |
+          echo '::echo::on'
           echo '::set-output name=LOCKED_LINES_PRESENT::false'
           DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
           if [ "$DIFF" != "" ]
