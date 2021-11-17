@@ -22,7 +22,7 @@ jobs:
           then
           echo "Special review required"
           echo '::set-output name=LOCKED_LINES_PRESENT::true'
-          echo {{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
+          echo ${{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
           fi
           # echo "####################### GET LIST OF REVIEWERS #######################################"
           # USERS_REVIEW_REQUESTED_FROM=$(cat $GITHUB_EVENT_PATH | jq '.pull_request.requested_reviewers | map("@" + .login) | join(" ")')
@@ -33,7 +33,7 @@ jobs:
           # echo "##############################################################"
           # echo ${{ github.event.review.user.login }}
       - name: assign reviewer
-        if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == "true"
+        if: steps.diff_check.outputs.LOCKED_LINES_PRESENT == true
         uses: LongOddCode/assign-reviewer@0.2.2
         with:
           #github access token.
