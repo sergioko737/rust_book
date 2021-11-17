@@ -15,9 +15,7 @@ jobs:
       - name: CHECK PR FOR LOCKS
         id: diff_check
         run: |
-          echo '::echo::on'
-          echo '::set-output name=LOCKED_LINES_PRESENT::false'
-          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
+          DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | { grep 🔒 || true; })
           if [ "$DIFF" != "" ]
           then
           echo "Special review required"
@@ -48,8 +46,8 @@ jobs:
             echo steps.diff_check.outputs.LOCKED_LINES_PRESENT
             echo "3"
             echo {{ steps.diff_check.outputs.LOCKED_LINES_PRESENT }}
-            echo $(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
-            DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | grep 🔒)
+            echo $(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | { grep 🔒 || true; })
+            DIFF=$(git --no-pager diff origin/${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.head.ref }} -U1 | { grep 🔒 || true; })
             if [ "$DIFF" != "" ]
             then
               echo "Special review required"
