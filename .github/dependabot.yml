@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/hello_cargo/"
+    labels: ["test"]
+    schedule:
+      interval: "daily"
