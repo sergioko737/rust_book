@@ -38,6 +38,10 @@ fn main() {
 
     println!("z is - {}", z);
     println!("z is - {}", z);
+
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    println!("{}", a[0]);
 }
 
 fn takes_ownership(some_string: &String) {
